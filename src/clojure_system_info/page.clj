@@ -103,6 +103,12 @@
 
 
            [:div.row {:style "margin-top: 2em"}
-            (link-to "/gc" [:button.button "Garbage collect"])]]])
+            [:div.column
+             (link-to "/mem" [:button.button-outline "Generate 10M ints"])]
+            [:div.column
+             (link-to "/cpu" [:button.button-outline "Compute 1M hashes (background)"])]
+            [:div.column
+             (link-to "/gc" [:button.button "Garbage collect"])]
+            [:div.column]]]])
         (response/response)
         (response/header "content-type" "text/html"))))

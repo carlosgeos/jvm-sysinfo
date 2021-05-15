@@ -41,3 +41,9 @@
   [req]
   (System/gc)
   (response/redirect "/"))
+
+(defn mem-handler
+  "Creates an array with 10M ints (4 bytes each)"
+  [req]
+  (int-array 10000000)
+  (response/redirect "/"))

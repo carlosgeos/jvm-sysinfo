@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [clojure-system-info.api :refer [api-handler]]
             [clojure-system-info.page :refer [html-handler]]
-            [clojure-system-info.system :refer [gc-handler]]
+            [clojure-system-info.system :refer [gc-handler mem-handler]]
+            [clojure.tools.cli :refer [parse-opts]]
             [org.httpkit.server :refer [run-server]]
             [reitit.ring :as ring]))
 
@@ -16,7 +17,9 @@
      ["/api"
       {:get {:handler api-handler}}]
      ["/gc"
-      {:get {:handler gc-handler}}]])))
+      {:get {:handler gc-handler}}]
+     ["/mem"
+      {:get {:handler mem-handler}}]])))
 
 (defn stop-server
   []
@@ -29,16 +32,23 @@
     (reset! server nil)))
 
 (defn start-server
-  [& {:keys [port] :or {port 8080}}]
+  [port]
   (println "Starting server on port" port)
   (reset! server (run-server app {:port port})))
 
 (defn restart-server
-  []
+  [port]
   (stop-server)
-  (start-server))
+  (start-server port))
+
+(def cli-options
+  [["-p" "--port PORT" "Port number"
+    :default 8080
+    :parse-fn #(Integer/parseInt %)
+    :validate [#(< 0 % 0x10000) "Must be a number between 0 and 65536"]]])
 
 (defn -main
   "Entrypoint"
   [& args]
-  (restart-server))
+  (let [parsed (parse-opts args cli-options)]
+    (restart-server (:port (:options parsed)))))

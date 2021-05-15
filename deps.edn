@@ -11,7 +11,8 @@
         metosin/jsonista {:mvn/version "0.3.3"}
         clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
         hiccup/hiccup {:mvn/version "1.0.5"}
-        metosin/reitit {:mvn/version "0.5.13"}}
+        metosin/reitit {:mvn/version "0.5.13"}
+        org.clojure/tools.cli {:mvn/version "1.0.206"}}
 
  ;; Aliases
  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
