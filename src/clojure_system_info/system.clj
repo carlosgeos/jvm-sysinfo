@@ -12,6 +12,7 @@
    :thread-count               (.getThreadCount (ManagementFactory/getThreadMXBean))
    :java-version               (System/getProperty "java.version")
    :java-home                  (System/getProperty "java.home")
+   :clojure-version            (clojure-version)
    :architecture               (.getArch (ManagementFactory/getOperatingSystemMXBean))
    :cpu-cores                  (.getAvailableProcessors (ManagementFactory/getOperatingSystemMXBean))
    :cpu-endianness             (System/getProperty "sun.cpu.endian")

@@ -33,6 +33,9 @@
             [:div.column "Java home"]
             [:div.column (:java-home data)]]
            [:div.row
+            [:div.column "Clojure version"]
+            [:div.column (:clojure-version data)]]
+           [:div.row
             [:div.column "Architecture"]
             [:div.column (:architecture data)]]
            [:div.row
