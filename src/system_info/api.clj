@@ -1,5 +1,5 @@
-(ns clojure-system-info.api
-  (:require [clojure-system-info.system :as sys]
+(ns system-info.api
+  (:require [system-info.system :as sys]
             [jsonista.core :as j]))
 
 (defn api-handler

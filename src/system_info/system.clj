@@ -1,4 +1,4 @@
-(ns clojure-system-info.system
+(ns system-info.system
   (:require [ring.util.response :as response])
   (:import java.lang.management.ManagementFactory))
 

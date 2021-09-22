@@ -1,8 +1,8 @@
-(ns clojure-system-info.core
+(ns system-info.core
   (:gen-class)
-  (:require [clojure-system-info.api :refer [api-handler]]
-            [clojure-system-info.page :refer [html-handler]]
-            [clojure-system-info.system :refer [gc-handler mem-handler]]
+  (:require [system-info.api :refer [api-handler]]
+            [system-info.page :refer [html-handler]]
+            [system-info.system :refer [gc-handler mem-handler]]
             [clojure.tools.cli :refer [parse-opts]]
             [org.httpkit.server :refer [run-server]]
             [reitit.ring :as ring]))

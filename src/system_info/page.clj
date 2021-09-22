@@ -1,5 +1,5 @@
-(ns clojure-system-info.page
-  (:require [clojure-system-info.system :as sys]
+(ns system-info.page
+  (:require [system-info.system :as sys]
             [clojure.contrib.humanize :refer [duration filesize]]
             [hiccup.element :refer [link-to]]
             [hiccup.page :as hiccup]
@@ -10,6 +10,7 @@
   (let [data (sys/data)]
     (-> (hiccup/html5
          [:head
+          [:title "System info"]
           (hiccup/include-css "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css")
           (hiccup/include-css "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css")]
          [:body

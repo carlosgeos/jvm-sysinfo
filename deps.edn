@@ -14,21 +14,8 @@
         metosin/reitit {:mvn/version "0.5.15"}
         org.clojure/tools.cli {:mvn/version "1.0.206"}}
 
- ;; Aliases
- ;;   resolve-deps aliases (-R) affect dependency resolution, options:
- ;;     :extra-deps - specifies extra deps to add to :deps
- ;;     :override-deps - specifies a coordinate to use instead of that in :deps
- ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
- ;;   make-classpath aliases (-C) affect the classpath generation, options:
- ;;     :extra-paths - vector of additional paths to add to the classpath
- ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
-
- :aliases {:uberjar {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.216"}}
-                     :exec-fn hf.depstar/uberjar
-                     :exec-args {:aot true
-                                 :main-class clojure-system-info.core
-                                 :jar sysinfo.jar
-                                 :version "0.0.1-SNAPSHOT"}}}
+ :aliases {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.5.1" :git/sha "21da7d4"}}
+                   :ns-default build}}
 
  ;; Provider attributes
 
