@@ -12,7 +12,7 @@ Small deployable JAR that displays basic system info. HTML + JSON `/api` interfa
 To build:
 
 ```
-$ clojure -X:uberjar
+$ clj -T:build uber
 ```
 
 To run:
