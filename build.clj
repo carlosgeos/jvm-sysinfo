@@ -13,16 +13,16 @@
 (defn uber [_]
   (clean nil)
   (b/write-pom {:class-dir class-dir
-                :lib lib
-                :version version
-                :basis basis
-                :src-dirs ["src"]})
-  (b/copy-dir {:src-dirs ["src"]
+                :lib       lib
+                :version   version
+                :basis     basis
+                :src-dirs  ["src"]})
+  (b/copy-dir {:src-dirs   ["src"]
                :target-dir class-dir})
-  (b/compile-clj {:basis basis
-                  :src-dirs ["src"]
+  (b/compile-clj {:basis     basis
+                  :src-dirs  ["src"]
                   :class-dir class-dir})
   (b/uber {:class-dir class-dir
            :uber-file uber-file
-           :main 'system-info.core
-           :basis basis}))
+           :main      'system-info.core
+           :basis     basis}))

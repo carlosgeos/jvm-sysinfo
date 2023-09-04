@@ -1,11 +1,12 @@
 (ns system-info.core
   (:gen-class)
-  (:require [system-info.api :refer [api-handler]]
-            [system-info.page :refer [html-handler]]
-            [system-info.system :refer [gc-handler mem-handler]]
-            [clojure.tools.cli :refer [parse-opts]]
-            [org.httpkit.server :refer [run-server]]
-            [reitit.ring :as ring]))
+  (:require
+   [clojure.tools.cli :refer [parse-opts]]
+   [org.httpkit.server :refer [run-server]]
+   [reitit.ring :as ring]
+   [system-info.api :refer [api-handler]]
+   [system-info.page :refer [html-handler]]
+   [system-info.system :refer [gc-handler mem-handler]]))
 
 (defonce server (atom nil))
 

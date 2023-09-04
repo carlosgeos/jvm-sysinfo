@@ -36,15 +36,14 @@
    :uptime                     (.getUptime (ManagementFactory/getRuntimeMXBean))
    :utc-time                   (new java.util.Date)))
 
-
 (defn gc-handler
   "Forces garbage collection and redirects to the root"
-  [req]
+  [_req]
   (System/gc)
   (response/redirect "/"))
 
 (defn mem-handler
   "Creates an array with 10M ints (4 bytes each)"
-  [req]
+  [_req]
   (int-array 10000000)
   (response/redirect "/"))

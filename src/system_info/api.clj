@@ -1,9 +1,10 @@
 (ns system-info.api
-  (:require [system-info.system :as sys]
-            [jsonista.core :as j]))
+  (:require
+   [jsonista.core :as j]
+   [system-info.system :as sys]))
 
 (defn api-handler
-  [req]
+  [_req]
   {:status  200
    :headers {"Content-Type" "application/json; charset=utf-8"}
    :body    (j/write-value-as-string (sys/data) j/default-object-mapper)})

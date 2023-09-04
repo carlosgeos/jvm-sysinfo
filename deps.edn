@@ -1,24 +1,12 @@
-{
- ;; Paths
- ;;   Directories in the current project to include in the classpath
-
- :paths ["src"]
-
- ;; External dependencies
-
- :deps {org.clojure/clojure {:mvn/version "1.10.3"}
-        http-kit/http-kit {:mvn/version "2.5.3"}
-        metosin/jsonista {:mvn/version "0.3.5"}
-        clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
-        hiccup/hiccup {:mvn/version "1.0.5"}
-        metosin/reitit {:mvn/version "0.5.17"}
-        org.clojure/tools.cli {:mvn/version "1.0.206"}}
-
- :aliases {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.8.1" :git/sha "7d40500"}}
-                   :ns-default build}}
-
- ;; Provider attributes
-
- :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-             "clojars" {:url "https://clojars.org/repo/"}}
- }
+{:paths ["src"]
+ :deps {clojure-humanize/clojure-humanize {:mvn/version "0.2.2"}
+        hiccup/hiccup                     {:mvn/version "1.0.5"}
+        http-kit/http-kit                 {:mvn/version "2.7.0"}
+        metosin/jsonista                  {:mvn/version "0.3.7"}
+        metosin/reitit                    {:mvn/version "0.6.0"}
+        org.clojure/clojure               {:mvn/version "1.11.1"}
+        org.clojure/tools.cli             {:mvn/version "1.0.219"}}
+ :aliases
+ {:build {:deps       {io.github.clojure/tools.build
+                       {:git/tag "v0.9.5" :git/sha "24f2894"}}
+          :ns-default build}}}

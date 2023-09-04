@@ -1,12 +1,13 @@
 (ns system-info.page
-  (:require [system-info.system :as sys]
-            [clojure.contrib.humanize :refer [duration filesize]]
-            [hiccup.element :refer [link-to]]
-            [hiccup.page :as hiccup]
-            [ring.util.response :as response]))
+  (:require
+   [clojure.contrib.humanize :refer [duration filesize]]
+   [hiccup.element :refer [link-to]]
+   [hiccup.page :as hiccup]
+   [ring.util.response :as response]
+   [system-info.system :as sys]))
 
 (defn html-handler
-  [req]
+  [_req]
   (let [data (sys/data)]
     (-> (hiccup/html5
          [:head
